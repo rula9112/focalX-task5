@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>index</title>
+      <link rel="stylesheet" href="./assets/css/myStyle.css">
+      
+        <!--[if lt IE 9]>
+          
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    </head>
+    
+    <body>
+
+      <div class="container">
+        <div class="calculator">
+          <input type="text" id="math-display" class="value math-display" />
+          <span class="num clear" onclick="deleteAll()"><i>C</i></span>
+          <span class="num del"  onclick="deleteLast()"><i>DEL</i></span>
+          <span class="num equal"  onclick="getResult()"><i>=</i></span>
+          <span class="num" onclick="setCalc(7)"><i>7</i></span>
+          <span class="num" onclick="setCalc('8')"><i>8</i></span>
+          <span class="num"  onclick="setCalc('9')"><i>9</i></span>
+          <span class="num"  onclick="setCalc('-')"><i>-</i></span>
+          <span class="num"  onclick="setCalc('4')"><i>4</i></span>
+          <span class="num"  onclick="setCalc('5')"><i>5</i></span>
+          <span class="num"  onclick="setCalc('6')"><i>6</i></span>
+          <span class="num plus"  onclick="setCalc('+')"><i>+</i></span>
+          <span class="num"  onclick="setCalc('1')"><i>1</i></span>
+          <span class="num"  onclick="setCalc('2')"><i>2</i></span>
+          <span class="num"  onclick="setCalc('3')"><i>3</i></span>
+          <span class="num"  onclick="setCalc('0')"><i>0</i></span>
+          <span class="num"  onclick="setCalc('00')"><i>00</i></span>
+          <span class="num"  onclick="setCalc('*')"><i>*</i></span>
+  
+          <span
+            class="num"
+            onclick="setCalc('/')"
+            ><i>/</i></span
+          >
+        </div>
+      </div>
+
+
+
+<script>
+
+let result = document.querySelector(".math-display");
+
+const ops = ['/' ,'*','+'];
+
+const setCalc = (val) =>{
+
+( ops.includes(val) && ops.includes( result.value.slice(-1)) ||  result.value == "" && ops.includes(val))? result= result : result.value += val ;
+
+}
+
+const getResult = ()=> result.value = eval(result.value) ;
+const deleteAll = ()=> result.value = "";
+const deleteLast = ()=> result.value = result.value.substr(0 , result.value.length-1)
+
+
+
+
+
+
+
+</script>
+    </body>
+
+</html>
